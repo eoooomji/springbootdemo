@@ -49,11 +49,6 @@ public class BoardDaoImp implements BoardDAO{
 	}
 
 	@Override
-	public BoardDTO updateNum(int num) {
-		return null;
-	}
-
-	@Override
 	public void update(BoardDTO dto) {
 		sqlSession.update("board.update", dto);
 	}

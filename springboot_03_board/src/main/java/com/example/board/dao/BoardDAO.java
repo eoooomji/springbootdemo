@@ -2,9 +2,14 @@ package com.example.board.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
 import com.example.board.dto.BoardDTO;
 import com.example.board.dto.PageDTO;
 
+@Mapper
+@Repository
 public interface BoardDAO {
 	public int count();
 	
@@ -17,8 +22,6 @@ public interface BoardDAO {
 	public void reStepCount(BoardDTO dto);
 	
 	public void save(BoardDTO dto);
-	
-	public BoardDTO updateNum(int num);
 	
 	public void update(BoardDTO dto);
 	
