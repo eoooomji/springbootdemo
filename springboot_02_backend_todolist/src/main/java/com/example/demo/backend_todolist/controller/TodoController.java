@@ -10,14 +10,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.backend_todolist.dto.TodoDTO;
@@ -72,7 +70,8 @@ public class TodoController {
 	}
 
 	// update
-	// todo?id=1&completed=0 : 이런 방식은 아래와 같은 @PathVariable을 사용할 수 없다. request로 불러오기 떄문에. 
+	// todo?id=1&completed=0 : 이런 방식은 아래와 같은 @PathVariable을 사용할 수 없다. request로 불러오기
+	// 떄문에.
 	// http://localhost:8090/todo/1/0
 	@PutMapping("/todo/{id}/{completed}")
 	public void putTodo(@PathVariable("id") int id, @PathVariable("completed") int completed) throws Exception {
@@ -82,13 +81,13 @@ public class TodoController {
 		dto.setCompleted(completed == 0 ? 1 : 0);
 		todoService.update(dto);
 	}
-	
+
 	// delete
 	// http://localhost:8090/todo/1
 	@DeleteMapping("/todo/{id}")
-	public void deleteTodo(@PathVariable("id") int id) throws Exception{
+	public void deleteTodo(@PathVariable("id") int id) throws Exception {
 		System.out.printf("id=%d \n", id);
 		todoService.delete(id);
 	}
-	
+
 }

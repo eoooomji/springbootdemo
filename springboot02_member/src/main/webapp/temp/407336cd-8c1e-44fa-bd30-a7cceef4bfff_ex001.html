@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex001</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+ $(document).ready(function(){
+	 $('#commit').click(function(){
+		 var add=Number($('#inputx').val())+
+		         Number($('#inputy').val());
+		 $('#result').val(add);
+	 });
+ });
+</script>
+</head>
+<body>
+<p><input type="text" placeholder="결과"
+     disabled="disabled" id="result"/></p>
+<input type="text" id="inputx" placeholder="x입력"/>
+<input type="text" id="inputy" placeholder="y입력"/>
+<input type="button" id="commit" value="commit"/> 
+</body>
+</html>

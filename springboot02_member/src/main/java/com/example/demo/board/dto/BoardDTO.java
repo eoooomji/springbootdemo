@@ -1,4 +1,4 @@
-package com.example.board.dto;
+package com.example.demo.board.dto;
 
 import java.sql.Date;
 
@@ -10,15 +10,15 @@ public class BoardDTO {
 	private int num, readcount, ref, re_step, re_level;
 	private String writer, email, subject, content, ip;
 	private Date reg_date;
-
-	// board테이블의 파일첨부를 처리해주는 멤버변수
+	
+	//board테이블의 파일첨부를 처리해주는 멤버변수
 	private String upload;
-
-	// form페이지에서 파일첨부를 받아 처리해주는 멤버변수
+	
+	//form페이지에서 파일첨부를 받아 처리해주는 멤버변수
 	private MultipartFile filename;
-
+	
 	public BoardDTO() {
-
+	
 	}
 
 	public int getNum() {
@@ -124,5 +124,7 @@ public class BoardDTO {
 	public void setFilename(MultipartFile filename) {
 		this.filename = filename;
 	}
-
-} // end class
+	
+	
+	
+}
