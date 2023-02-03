@@ -48,10 +48,10 @@ dependencies {
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
 	
 	// jsp
-	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	//implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	
 	// jstl
-	implementation 'javax.servlet:jstl:1.2'
+	//implementation 'javax.servlet:jstl:1.2'
 	
 	
 	

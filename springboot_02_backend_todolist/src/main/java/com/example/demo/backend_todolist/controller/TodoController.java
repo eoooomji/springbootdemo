@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,9 @@ import com.example.demo.backend_todolist.service.TodoService;
 
 // http://localhost:8090/todo/all
 
+// @CrossOrigin : 다른 포트번호에서도 응답을 허가하게 해주는 어노테이션
+@CrossOrigin("*") // 모든 포트번호에서 가능하게끔
+// @CrossOrigin(origins = {"http://localhost:3000"}) // 특정 포트번호만 허가하게끔
 @RestController
 //@Controller
 public class TodoController {
@@ -33,14 +37,14 @@ public class TodoController {
 	private TodoService todoService;
 
 	public TodoController() {
-		System.out.println("controller");
+		//System.out.println("controller");
 	}
 
 	// @ResponseBody : json 형태로 값을 넘김
 	// @ResponseBody
 	@GetMapping("/todo/all")
 	public List<TodoDTO> getList() throws Exception {
-		System.out.println("all");
+		//System.out.println("all");
 		return todoService.search();
 	}
 
@@ -49,7 +53,7 @@ public class TodoController {
 	// json형태의 여러 밸류값을 받게 될 때 @RequestBody를 사용한다.
 	@PostMapping("/todo")
 	public ResponseEntity<Object> postTodo(@RequestBody TodoDTO dto) throws Exception {
-		System.out.println(dto.getTodoname());
+		//System.out.println(dto.getTodoname());
 		int chk = todoService.insert(dto);
 		HttpHeaders header = new HttpHeaders();
 		header.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
