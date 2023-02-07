@@ -53,9 +53,15 @@ dependencies {
 	// jstl
 	//implementation 'javax.servlet:jstl:1.2'
 	
+	//jwt
+	implementation 'com.auth0:java-jwt:4.0.0'
 	
-	
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
 
+
+	
 	
 }
 

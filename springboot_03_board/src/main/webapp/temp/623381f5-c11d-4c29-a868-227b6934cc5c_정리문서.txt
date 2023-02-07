@@ -1,0 +1,42 @@
+transaction
+
+- 한번에 수행되어야 할 데이터베이스의 일련의 Read와 Write 연산을 수행하는 단위(과정) : 하나의 작업이다.
+
+- 트랜잭션 안정성 확보를 위한 ACID
+
+- Atomicity(원자성), Consistency(일관성), Isolation(독립성), Durability(지속성)
+
+- DB를 다룰 때 트랜잭션을 적용하면 데이터 추가, 갱신, 삭제 등으로 이루어진 작업을 처리하던 중 오류가 발생했을 때
+모든 작업들을 원상태로 되돌릴 수 있다.
+
+AOP(Aspect Oriented Programming) : 관점 지향 프로그래밍
+
+- 중복되는 메소드, 필드, 코드. 하나의 클래스에서 수정하면 다른 클래스에서도 수정을 해주어야 한다.
+  > 유지보수 측면에서 어렵다. 이런 반복되는 코드를 흩어진 관심사 (Crosscutting Concerns)라 부른다.
+
+- AOP는 Aspect를 이용하여 해결한다. 흩어져 있는 부분을 Aspect를 이용하여 모듈화를 시킨다.
+  (모듈화 : 어떤 공통된 로직이나 기능을 하나의 단위로 묶는 것을 말한다.)
+
+- 
+
+
+
+spring
+
+환경설정 - xml
+
+context:component-scan base-package=" "
+
+- @Controller, @Service, @Repository, @Component 등의 애노테이션을 xml에 선언해 사용
+
+- base-package : 패키지를 어디부터 스캔할 지 지정해준다. 스캔할 패키지를 여러개로 지정 가능
+
+- 위의 어노태이션으로 등록된 빈은 디폴트로 스캔한다.
+
+- 디폴트 애노테이션을 스캔하지 않으려면 기본 값을 fales로 선언해주면 된다. (use-default-filters="false")
+
+- include-filter / exclude-filter : 스캔 대상 포함 / 미포함
+
+- spring-boot 에서는 java단에서 애노테이션으로 정리
+
+- 레거시 프로젝트에서는 xml로 정리
