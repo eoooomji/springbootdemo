@@ -13,10 +13,10 @@ import com.example.login.repository.UserRepository;
 @CrossOrigin(origins = { "http://localhost:3000" })
 @RestController
 public class IndexController {
-	
+
 	@Autowired
 	private BCryptPasswordEncoder encodePassword;
-	
+
 	@Autowired
 	private UserRepository userRepository;
 

@@ -1,0 +1,58 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+
+
+
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	
+	//aop
+	implementation 'org.springframework.boot:spring-boot-starter-aop'	
+	
+	
+	//jsp
+	//implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	//jstl
+	//implementation 'javax.servlet:jstl:1.2'	
+	
+	//mybatis
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+	
+	//oracle : 11 version
+	//implementation 'com.oracle.database.jdbc:ojdbc6:11.2.0.4'
+	implementation 'com.oracle.database.jdbc:ojdbc8'
+	
+	//tiles
+	//implementation 'org.apache.tiles:tiles-jsp:3.0.8'
+	//implementation 'org.apache.tiles:tiles-servlet:3.0.8'
+	//implementation 'org.apache.tiles:tiles-core:3.0.8'
+	//implementation 'org.apache.tiles:tiles-api:3.0.8'
+	//implementation 'org.apache.tiles:tiles-el:3.0.8'
+	
+	//jwt
+	implementation 'com.auth0:java-jwt:4.0.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

@@ -14,10 +14,11 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import com.example.login.repository.UserRepository;
 import com.example.security.jwt.JwtAuthenticationFilter;
+import com.example.security.jwt.JwtAuthorizationFilter;
 import com.example.security.service.CorsConfig;
 
 //[1] POSTMAN에서 테스트
-//POST http://localhost:8090/login
+//POST http://localhost:8090/join
 //boy, raw , json  => {"username":"min", "password":"1234"}
 //
 
@@ -39,7 +40,7 @@ public class SecurityConfig {
 
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		
+
 		// 기존 거를 끊다.
 		http.csrf().disable();
 
@@ -49,12 +50,11 @@ public class SecurityConfig {
 		http.formLogin().disable();
 		// 기본 제공 되는 걸 사용 거부
 		http.httpBasic().disable();
-		
+
 		// 커스텀 필터 등록
 		http.apply(new MyCustomerFilter());
-		
-		http.authorizeHttpRequests()
-				.antMatchers("/member/**").authenticated() // 인증만 되면 들어갈 수 있는 주소
+
+		http.authorizeHttpRequests().antMatchers("/member/**").authenticated() // 인증만 되면 들어갈 수 있는 주소
 				// .antMatchers("/manager/**").access("hasRole("ROLE_ADMIN") or
 				// hasRole("ROLE_MANGER")")
 				.antMatchers("/manager/**").hasAnyRole("ADMIN", "MANAGER") // ADMIN,MANAGER권한자만 접근 가능
